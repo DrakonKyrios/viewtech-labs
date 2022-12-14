@@ -1,6 +1,7 @@
 import logo from "./logo.svg";
 import "./App.css";
 import { Info } from "./components/info.component";
+import { Skills } from "./components/skills.component";
 import styled from "styled-components";
 
 const SideProfile = styled.aside`
@@ -13,6 +14,7 @@ function App() {
     <main>
       <SideProfile>
         <Info></Info>
+        <Skills></Skills>
       </SideProfile>
       <section></section>
     </main>
