@@ -9,22 +9,22 @@ const ProfileBackground = styled.div`
   top: 0;
   z-index: -1;
 `;
-const ProfileBackPlate = styled.div`
+const ProfileImageContainer = styled.div`
   border-radius: 10rem;
   border: 3px solid #becee7;
   height: 10rem;
   width: 10rem;
   padding-top: 0;
   margin: 0 auto;
-`;
-const ProfileImageContainer = styled.div`
-  border-radius: 10rem;
-  height: 10rem;
-  width: 10rem;
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center center;
-  margin: 0 auto;
+  > div {
+    border-radius: 10rem;
+    height: 10rem;
+    width: 10rem;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+    margin: 0 auto;
+  }
 `;
 const ProfileContainer = styled.div`
   padding-top: 2rem;
@@ -44,13 +44,9 @@ export const Info = () => {
     <section>
       <ProfileContainer>
         <ProfileBackground></ProfileBackground>
-        <ProfileBackPlate>
-          <ProfileImageContainer
-            style={{ backgroundImage: `url(${profileImage})` }}
-          >
-            &nbsp;
-          </ProfileImageContainer>
-        </ProfileBackPlate>
+        <ProfileImageContainer>
+          <div style={{ backgroundImage: `url(${profileImage})` }}>&nbsp;</div>
+        </ProfileImageContainer>
         <ProfileIdentity>Andres R Toro</ProfileIdentity>
         <ProfileAddress>Newark, DE</ProfileAddress>
       </ProfileContainer>
