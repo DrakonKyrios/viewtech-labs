@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { skills } from "../utility/skill.library.js";
 
 const SkillList = styled.ul`
   list-style: none;
@@ -8,49 +9,50 @@ const SkillList = styled.ul`
     text-align: center;
   }
 `;
-export const Skills = () => {
-  const skills = [
-    "HTML",
-    "CSS",
-    "React",
-    "Angular",
-    "Javascript",
-    "Typescript",
-    "Vue.js",
-    "Storybook",
-    "jQuery",
-    "C#",
-    ".Net",
-    "EF",
-    "Dapper",
-    "Java",
-    "Kotlin",
-    "Spring",
-    "Hibernate",
-    "Flyway",
-    "Node.js",
-    "Express",
-    "Python",
-    "Django",
-    "Go",
-    "MSSQL",
-    "MySQL",
-    "MongoDB",
-    "CosmosDB",
-    "Azure",
-    "AWS",
-    "Docker",
-    "Git",
-    "TensorFlow",
-    "CI/CD",
-  ];
+export const Skills = ({ style }) => {
+  const SparklesIcon = () => (
+    <i style={{ color: "#51b6be" }} className="fa-duotone fa-book-sparkles" />
+  );
+  const CauldraonIcon = () => (
+    <i style={{ color: "#f34737" }} className="fa-duotone fa-cauldron" />
+  );
+  const DisplayProficientSkill = (skill) => (
+    <li>
+      {skill.name}&nbsp;
+      <SparklesIcon />
+    </li>
+  );
+  const DisplaySkill = (skill) => <li>{skill.name}</li>;
+  const DisplayUsedSkill = (skill) => (
+    <li style={{ color: "#f34737" }}>
+      <strong>{skill.name}</strong>&nbsp;
+      <CauldraonIcon />
+    </li>
+  );
 
   return (
-    <section style={{ padding: "2rem 0" }}>
+    <section style={{ ...(style || {}), padding: "2rem 0", flex: 1 }}>
+      <div style={{ textAlign: "center" }}>
+        <span>
+          <SparklesIcon /> - Proficient
+        </span>
+        <br />
+        <span>
+          <CauldraonIcon /> - Used In This App
+        </span>
+      </div>
+      <br />
+      <br />
       <SkillList>
         {skills
           ? skills.map((skill) => {
-              return <li>{skill}</li>;
+              if (skill.isUsed) {
+                return DisplayUsedSkill(skill);
+              }
+              if (skill.isProficient) {
+                return DisplayProficientSkill.apply(this, [skill]);
+              }
+              return DisplaySkill(skill);
             })
           : null}
       </SkillList>
