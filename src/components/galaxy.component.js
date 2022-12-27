@@ -21,14 +21,26 @@ const StarPoint = styled.span`
   display: inline-block;
   transform: rotate3d(8, -3, 1, 75deg);
 `;
+
+const Inventory = styled.div`
+  color: white;
+`;
 export const Galaxy = () => {
   const [starPoints, setStarPoints] = useState([]);
+  const [selectedStarPoint, setSelectStarPoint] = useState(null);
 
   const addStarPoint = (starPointX, starPointY) => {
     setStarPoints([
       ...starPoints,
-      { location: { x: starPointX - 310, y: starPointY - 126 } },
+      {
+        location: { x: starPointX - 310, y: starPointY - 126 },
+        inventory: ["Strawberries", "Mangos", "Diamond Ore"],
+      },
     ]);
+  };
+  const openInventory = (e, point) => {
+    setSelectStarPoint(point);
+    e.stopPropagation();
   };
   return (
     <GalaxyContainer
@@ -37,7 +49,11 @@ export const Galaxy = () => {
     >
       {starPoints.map((point, i) => {
         return (
-          <StarPoint key={`star-point-${i}`} location={point.location}>
+          <StarPoint
+            onClick={(e) => openInventory(e, point)}
+            key={`star-point-${i}`}
+            location={point.location}
+          >
             <svg
               width="81"
               height="81"
@@ -56,6 +72,13 @@ export const Galaxy = () => {
           </StarPoint>
         );
       })}
+      {selectedStarPoint !== null ? (
+        <Inventory>
+          {selectedStarPoint.inventory.map((item) => {
+            return <span>{item}</span>;
+          })}
+        </Inventory>
+      ) : null}
     </GalaxyContainer>
   );
 };
