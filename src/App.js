@@ -4,6 +4,7 @@ import { Info } from "./components/info.component";
 import { Skills } from "./components/skills.component";
 import styled from "styled-components";
 import { Summary } from "./components/summary.component";
+import { Galaxy } from "./components/galaxy.component";
 
 const SideProfile = styled.aside`
   height: 100vh;
@@ -26,8 +27,11 @@ function App() {
         <Skills style={{ flex: 1 }}></Skills>
         <SideFooter>December 2022</SideFooter>
       </SideProfile>
-      <section>
+      <section
+        style={{ width: "100%", display: "flex", flexDirection: "column" }}
+      >
         <Summary></Summary>
+        <Galaxy></Galaxy>
       </section>
     </main>
   );

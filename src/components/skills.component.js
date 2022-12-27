@@ -11,22 +11,32 @@ const SkillList = styled.ul`
 `;
 export const Skills = ({ style }) => {
   const SparklesIcon = () => (
-    <i style={{ color: "#51b6be" }} className="fa-duotone fa-book-sparkles" />
+    <i
+      style={{
+        color: "#51b6be",
+        fontSize: "0.75 rem",
+        verticalAlign: "middle",
+        display: "inline-block",
+        paddingLeft: ".4rem",
+      }}
+      className="fa-duotone fa-book-sparkles"
+    />
   );
   const CauldraonIcon = () => (
     <i style={{ color: "#f34737" }} className="fa-duotone fa-cauldron" />
   );
-  const DisplayProficientSkill = (skill) => (
+  const DisplaySkill = (skill) => (
     <li>
-      {skill.name}&nbsp;
-      <SparklesIcon />
+      {skill.name}
+      {skill.isProficient ? <SparklesIcon /> : null}
     </li>
   );
-  const DisplaySkill = (skill) => <li>{skill.name}</li>;
   const DisplayUsedSkill = (skill) => (
     <li style={{ color: "#f34737" }}>
-      <strong>{skill.name}</strong>&nbsp;
+      <strong>{skill.name}</strong>
+      &nbsp;
       <CauldraonIcon />
+      {skill.isProficient ? <SparklesIcon /> : null}
     </li>
   );
 
@@ -47,10 +57,7 @@ export const Skills = ({ style }) => {
         {skills
           ? skills.map((skill) => {
               if (skill.isUsed) {
-                return DisplayUsedSkill(skill);
-              }
-              if (skill.isProficient) {
-                return DisplayProficientSkill.apply(this, [skill]);
+                return DisplayUsedSkill.apply(this, [skill]);
               }
               return DisplaySkill(skill);
             })

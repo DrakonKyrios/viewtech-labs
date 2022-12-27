@@ -1,5 +1,5 @@
 export const skills = [
-  { name: "HTML", isProficient: false, isUsed: true },
+  { name: "HTML", isProficient: true, isUsed: true },
   { name: "CSS", isProficient: false, isUsed: true },
   { name: "React", isProficient: true, isUsed: true },
   { name: "Angular", isProficient: false, isUsed: false },
@@ -17,8 +17,8 @@ export const skills = [
   { name: "Spring", isProficient: true, isUsed: false },
   { name: "Hibernate", isProficient: false, isUsed: false },
   { name: "Flyway", isProficient: false, isUsed: false },
-  { name: "Node.js", isProficient: true, isUsed: false },
-  { name: "Express", isProficient: true, isUsed: false },
+  { name: "Node.js", isProficient: true, isUsed: true },
+  { name: "Express", isProficient: true, isUsed: true },
   { name: "Python", isProficient: false, isUsed: false },
   { name: "Django", isProficient: false, isUsed: false },
   { name: "Go", isProficient: false, isUsed: false },
@@ -31,5 +31,5 @@ export const skills = [
   { name: "Docker", isProficient: true, isUsed: false },
   { name: "Git", isProficient: true, isUsed: false },
   { name: "TensorFlow", isProficient: false, isUsed: false },
-  { name: "CI/CD", isProficient: false, isUsed: false },
+  { name: "CI/CD", isProficient: false, isUsed: true },
 ];
