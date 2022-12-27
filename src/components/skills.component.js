@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import { skills } from "../utility/skill.library.js";
+import { uuidv4 } from "../utility/uuid.utility.js";
 
 const SkillList = styled.ul`
   list-style: none;
@@ -26,13 +27,13 @@ export const Skills = ({ style }) => {
     <i style={{ color: "#f34737" }} className="fa-duotone fa-cauldron" />
   );
   const DisplaySkill = (skill) => (
-    <li>
+    <li key={`skill-${uuidv4()}`}>
       {skill.name}
       {skill.isProficient ? <SparklesIcon /> : null}
     </li>
   );
   const DisplayUsedSkill = (skill) => (
-    <li style={{ color: "#f34737" }}>
+    <li style={{ color: "#f34737" }} key={`skill-${uuidv4()}`}>
       <strong>{skill.name}</strong>
       &nbsp;
       <CauldraonIcon />
