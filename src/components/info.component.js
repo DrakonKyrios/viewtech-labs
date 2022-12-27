@@ -41,7 +41,7 @@ const ProfileAddress = styled.div`
 `;
 export const Info = () => {
   return (
-    <section>
+    <section style={{ borderRight: "1px solid #becee7" }}>
       <ProfileContainer>
         <ProfileBackground></ProfileBackground>
         <ProfileImageContainer>

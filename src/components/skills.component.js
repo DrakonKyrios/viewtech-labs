@@ -26,20 +26,34 @@ export const Skills = ({ style }) => {
   const CauldraonIcon = () => (
     <i style={{ color: "#f34737" }} className="fa-duotone fa-cauldron" />
   );
+  const SkillChoice = (skill) => {
+    if (skill.isUsed) {
+      return DisplayUsedSkill.apply(this, [skill]);
+    }
+    return DisplaySkill(skill);
+  };
   const DisplaySkill = (skill) => (
-    <li key={`skill-${uuidv4()}`}>
-      {skill.name}
-      {skill.isProficient ? <SparklesIcon /> : null}
-    </li>
+    <>
+      <li key={`skill-${uuidv4()}`}>
+        {skill.name}
+        {skill.isProficient ? <SparklesIcon /> : null}
+      </li>
+      {skill.children.length > 0 ? skill.children.map(SkillChoice) : null}
+    </>
   );
-  const DisplayUsedSkill = (skill) => (
-    <li style={{ color: "#f34737" }} key={`skill-${uuidv4()}`}>
-      <strong>{skill.name}</strong>
-      &nbsp;
-      <CauldraonIcon />
-      {skill.isProficient ? <SparklesIcon /> : null}
-    </li>
-  );
+  const DisplayUsedSkill = (skill) => {
+    return (
+      <>
+        <li style={{ color: "#f34737" }} key={`skill-${uuidv4()}`}>
+          <strong>{skill.name}</strong>
+          &nbsp;
+          <CauldraonIcon />
+          {skill.isProficient ? <SparklesIcon /> : null}
+        </li>
+        {skill.children.length > 0 ? skill.children.map(SkillChoice) : null}
+      </>
+    );
+  };
 
   return (
     <section style={{ ...(style || {}), padding: "2rem 0", flex: 1 }}>
@@ -54,16 +68,7 @@ export const Skills = ({ style }) => {
       </div>
       <br />
       <br />
-      <SkillList>
-        {skills
-          ? skills.map((skill) => {
-              if (skill.isUsed) {
-                return DisplayUsedSkill.apply(this, [skill]);
-              }
-              return DisplaySkill(skill);
-            })
-          : null}
-      </SkillList>
+      <SkillList>{skills ? skills.map(SkillChoice) : null}</SkillList>
     </section>
   );
 };
