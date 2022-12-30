@@ -1,90 +1,43 @@
-import { times } from "lodash";
 import { useEffect, useState } from "react";
 import styled from "styled-components";
 import galaxy from "../assets/galaxy_5.jpg";
 import { PURE_SILVER, SILVER } from "../utility/item.library";
+import { Inventory } from "./inventory.component";
 import { UsedSkills } from "./used-skills.component";
 
 const GalaxyContainer = styled.section`
   padding: 1rem;
   flex: 1;
   position: relative;
-  background-size: cover;
+  background-size: 100% 100%;
   background-position: 0 0;
   background-repeat: no-repeat;
   img {
+    width: 100%;
     height: calc(100vh - 10rem);
   }
 `;
 
 const StarPoint = styled.span`
   position: absolute;
-  left: ${(props) => props.location.x}px;
-  top: ${(props) => props.location.y}px;
+  left: ${(props) => props.location.x * props.size.width}px;
+  top: ${(props) => props.location.y * props.size.height}px;
   display: inline-block;
   transform: rotate3d(8, -3, 1, 75deg);
-`;
-
-const Inventory = styled.div`
-  color: white;
-  position: absolute;
-  display: flex;
-  justify-content: space-between;
-  flex-wrap: wrap;
-  background: rgba(0, 0, 0, 0.75);
-  width: 18rem;
-  height: 28.1rem;
-  left: ${(props) => props.location.x + 100}px;
-  top: ${(props) => props.location.y - 100}px;
-`;
-
-const InventoryHeader = styled.div`
-  flex: 0 0 100%;
-  font-weight: bold;
-  height: 1.5rem;
-  background: rgba(255, 255, 255, 0.2);
-  span {
-    display: inline-block;
-    height: 2rem;
-    line-height: 2rem;
-    padding-left: 0.5rem;
-  }
-`;
-
-const InventoryBackground = styled.div`
-  position: absolute;
-  margin-top: 1.5rem;
-  display: flex;
-  flex-wrap: wrap;
-  width: 100%;
-  padding-top: 0.5rem;
-  height: calc(100% - 2rem);
-  background: rgba(255, 255, 255, 0.2);
-`;
-
-const EmptyBackgroundItem = styled.div`
-  display: inline-block;
-  flex: 0 0 4rem;
-  height: 4rem;
-  margin: 0 0 0 0.4rem;
-  background: rgba(255, 255, 255, 0.1);
-  background-size: contain;
-  background-repeat: no-repeat;
-  background-position: center center;
-  &:hover {
-    background-color: rgba(255, 255, 255, 0.4);
-  }
 `;
 
 export const Galaxy = () => {
   const [starPoints, setStarPoints] = useState([]);
   const [selectedStarPoint, setSelectStarPoint] = useState(null);
-  const [inventory, setInventory] = useState([]);
+  const [galaxySize, setGalaxySize] = useState({
+    width: window.innerWidth,
+    height: window.innerHeight,
+  });
   const addStarPoint = (starPointX, starPointY) => {
     setStarPoints([
       ...starPoints,
       {
-        location: { x: starPointX - 315, y: starPointY - 145 },
+        location: { x: 0.6, y: 0.6 },
         inventory: [SILVER, PURE_SILVER],
       },
     ]);
@@ -96,13 +49,22 @@ export const Galaxy = () => {
 
   useEffect(() => {
     const item = {
-      location: { x: 1336 - 315, y: 762 - 145 },
-      inventory: [SILVER, PURE_SILVER],
+      location: { x: 0.484, y: 0.505 },
+      inventory: [
+        { id: 1, ...SILVER },
+        { id: 2, ...PURE_SILVER },
+      ],
     };
     setStarPoints([item]);
-    setInventory(item.inventory);
     setSelectStarPoint(item);
   }, []);
+
+  useEffect(() => {
+    window.addEventListener("resize", () => {
+      setGalaxySize({ width: window.innerWidth, height: window.innerHeight });
+    });
+  }, []);
+
   return (
     <GalaxyContainer
       onClick={(e) => addStarPoint(e.clientX, e.clientY)}
@@ -114,6 +76,7 @@ export const Galaxy = () => {
             onClick={(e) => openInventory(e, point)}
             key={`star-point-${i}`}
             location={point.location}
+            size={galaxySize}
           >
             <svg
               width="81"
@@ -134,29 +97,7 @@ export const Galaxy = () => {
         );
       })}
       {selectedStarPoint !== null ? (
-        <Inventory
-          onClick={(e) => {
-            e.stopPropagation();
-          }}
-          location={selectedStarPoint.location}
-        >
-          <InventoryHeader>
-            <span>INVENTORY</span>
-          </InventoryHeader>
-          <InventoryBackground>
-            {times(24).map((i) => {
-              if (i < inventory.length) {
-                return (
-                  <EmptyBackgroundItem
-                    style={{ backgroundImage: `url(${SILVER.image})` }}
-                  ></EmptyBackgroundItem>
-                );
-              } else {
-                return <EmptyBackgroundItem></EmptyBackgroundItem>;
-              }
-            })}
-          </InventoryBackground>
-        </Inventory>
+        <Inventory starPoint={selectedStarPoint}></Inventory>
       ) : null}
       <UsedSkills skills={["HTML", "CSS", "NodeJS", "ReactJs"]}></UsedSkills>
     </GalaxyContainer>

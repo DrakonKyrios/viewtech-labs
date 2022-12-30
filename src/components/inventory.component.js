@@ -1,0 +1,108 @@
+import styled from "styled-components";
+import { times } from "lodash";
+import { SILVER } from "../utility/item.library";
+import { useEffect, useState } from "react";
+
+const InventoryContainer = styled.div`
+  color: white;
+  position: absolute;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  background: rgba(0, 0, 0, 0.75);
+  width: 18rem;
+  height: 28.1rem;
+  left: ${(props) => props.location.x * props.size.width + 100}px;
+  top: ${(props) => props.location.y * props.size.height - 100}px;
+`;
+
+const InventoryHeader = styled.div`
+  flex: 0 0 100%;
+  font-weight: bold;
+  height: 1.5rem;
+  background: rgba(255, 255, 255, 0.2);
+  span {
+    display: inline-block;
+    height: 2rem;
+    line-height: 2rem;
+    padding-left: 0.5rem;
+  }
+`;
+
+const InventoryBackground = styled.div`
+  position: absolute;
+  margin-top: 1.5rem;
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+  padding-top: 0.5rem;
+  height: calc(100% - 2rem);
+  background: rgba(255, 255, 255, 0.2);
+`;
+
+const EmptyBackgroundItem = styled.span`
+  display: inline-block;
+  flex: 0 0 3.8rem;
+  height: 3.8rem;
+  margin: 0 0 0 0.4rem;
+  background: rgba(255, 255, 255, 0.1);
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center center;
+  border: 0.1rem solid transparent;
+  &:hover {
+    background-color: rgba(255, 255, 255, 0.4);
+  }
+  &.item-selected {
+    border: 2px solid white;
+  }
+`;
+
+export const Inventory = ({ starPoint }) => {
+  const [galaxySize, setGalaxySize] = useState({
+    width: window.innerWidth,
+    height: window.innerHeight,
+  });
+  const [selected, setSelected] = useState(null);
+
+  useEffect(() => {
+    window.addEventListener("resize", () => {
+      setGalaxySize({ width: window.innerWidth, height: window.innerHeight });
+    });
+  }, []);
+
+  return (
+    <InventoryContainer
+      location={starPoint.location}
+      onClick={(e) => {
+        e.stopPropagation();
+      }}
+      size={galaxySize}
+    >
+      <InventoryHeader>
+        <span>INVENTORY</span>
+      </InventoryHeader>
+      <InventoryBackground>
+        {times(24).map((i) => {
+          if (i < starPoint.inventory.length) {
+            return (
+              <EmptyBackgroundItem
+                onClick={() => setSelected(starPoint.inventory[i])}
+                className={`${
+                  selected?.id === starPoint.inventory[i].id
+                    ? "item-selected"
+                    : ""
+                }`}
+                style={{
+                  backgroundImage: `url(${starPoint.inventory[i].image})`,
+                }}
+              ></EmptyBackgroundItem>
+            );
+          } else {
+            return <EmptyBackgroundItem></EmptyBackgroundItem>;
+          }
+        })}
+      </InventoryBackground>
+    </InventoryContainer>
+  );
+};
