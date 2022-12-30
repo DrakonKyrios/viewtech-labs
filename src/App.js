@@ -21,19 +21,25 @@ const SideFooter = styled.div`
 
 function App() {
   return (
-    <main style={{ display: "flex" }}>
-      <SideProfile>
-        <Info></Info>
-        <Skills style={{ flex: 1 }}></Skills>
-        <SideFooter>December 2022</SideFooter>
-      </SideProfile>
-      <section
-        style={{ width: "100%", display: "flex", flexDirection: "column" }}
-      >
-        <Summary></Summary>
-        <Galaxy></Galaxy>
-      </section>
-    </main>
+    <>
+      <script
+        async
+        src="https://maps.googleapis.com/maps/api/js?libraries=places,visualization&key=YOUR_API_KEY&v=weekly&callback=initMap"
+      ></script>
+      <main style={{ display: "flex" }}>
+        <SideProfile>
+          <Info></Info>
+          <Skills style={{ flex: 1 }}></Skills>
+          <SideFooter>December 2022</SideFooter>
+        </SideProfile>
+        <section
+          style={{ width: "100%", display: "flex", flexDirection: "column" }}
+        >
+          <Summary></Summary>
+          <Galaxy></Galaxy>
+        </section>
+      </main>
+    </>
   );
 }
 
