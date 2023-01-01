@@ -5,6 +5,8 @@ import { Skills } from "./components/skills.component";
 import styled from "styled-components";
 import { Summary } from "./components/summary.component";
 import { Galaxy } from "./components/galaxy.component";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import { Blog } from "./components/blog.component";
 
 const SideProfile = styled.aside`
   height: 100vh;
@@ -20,6 +22,16 @@ const SideFooter = styled.div`
 `;
 
 function App() {
+  const router = createBrowserRouter([
+    {
+      element: <Galaxy />,
+      path: "",
+    },
+    {
+      element: <Blog />,
+      path: "",
+    },
+  ]);
   return (
     <>
       <script
@@ -36,7 +48,7 @@ function App() {
           style={{ width: "100%", display: "flex", flexDirection: "column" }}
         >
           <Summary></Summary>
-          <Galaxy></Galaxy>
+          <RouterProvider router={router}></RouterProvider>
         </section>
       </main>
     </>

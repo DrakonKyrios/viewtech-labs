@@ -12,6 +12,9 @@ const ProjectStatement = styled.div`
     padding-left: 1rem;
   }
 `;
+const ProjectNote = styled.span`
+  display: block;
+`;
 
 export const Summary = () => {
   return (
@@ -26,13 +29,25 @@ export const Summary = () => {
         ogically <strong>C</strong>reative.
       </Statement>
       <ProjectStatement>
-        Recently started creating a small project to exhibit some of my skills
-        and creativity. Hope you enjoy.
-        <br />
-        <span>
-          Next step to Proof of Concept buying and trading items through smart
-          contracts
-        </span>
+        12/12/22 <br />
+        <ProjectNote>
+          <strong>R</strong>ecently started creating a small project to exhibit
+          some of my skills and creativity. Hope you enjoy.{" "}
+        </ProjectNote>
+        <ProjectNote>
+          <strong>T</strong>he initial route I think I'll go for is React app on
+          a NodeJS - Express Server in Azure Linux environment that will deploy
+          automatically using a pipeline setup from Dev Azure Portal.
+        </ProjectNote>
+        <ProjectNote>
+          <strong>A</strong>fterwards the plan will be for a automated "ship" to
+          go to each starpoint and buy the resources that it needs based on it's
+          budget and gas costs, data will be kept in a NoSQL databse with a C#
+          Microservice to handle trade requests based on smart contracts on the
+          Algorand Test Network (beacuse why not). So at the end of the day
+          HTML, CSS, Javascript(React | NodeJs), C# (.Net), Python will be used
+          in this particular app.
+        </ProjectNote>
       </ProjectStatement>
     </section>
   );

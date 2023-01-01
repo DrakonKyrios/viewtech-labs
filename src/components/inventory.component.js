@@ -2,12 +2,14 @@ import styled from "styled-components";
 import { times } from "lodash";
 import { SILVER } from "../utility/item.library";
 import { useEffect, useState } from "react";
+import { ALGO_WHITE_ICON } from "../utility/icon.library";
 
 const InventoryContainer = styled.div`
   color: white;
   position: absolute;
   display: flex;
   justify-content: space-between;
+  flex-direction: row;
   flex-wrap: wrap;
   background: rgba(0, 0, 0, 0.75);
   width: 18rem;
@@ -17,7 +19,7 @@ const InventoryContainer = styled.div`
 `;
 
 const InventoryHeader = styled.div`
-  flex: 0 0 100%;
+  width: 100%;
   font-weight: bold;
   height: 1.5rem;
   background: rgba(255, 255, 255, 0.2);
@@ -30,14 +32,19 @@ const InventoryHeader = styled.div`
 `;
 
 const InventoryBackground = styled.div`
-  position: absolute;
-  margin-top: 1.5rem;
   display: flex;
   flex-wrap: wrap;
   width: 100%;
   padding-top: 0.5rem;
   height: calc(100% - 2rem);
   background: rgba(255, 255, 255, 0.2);
+`;
+
+const Bank = styled.div`
+  width: 100%;
+  background: rgba(255, 255, 255, 0.2);
+  text-align: right;
+  font-weight: bold;
 `;
 
 const EmptyBackgroundItem = styled.span`
@@ -50,11 +57,21 @@ const EmptyBackgroundItem = styled.span`
   background-repeat: no-repeat;
   background-position: center center;
   border: 0.1rem solid transparent;
+  position: relative;
+
   &:hover {
     background-color: rgba(255, 255, 255, 0.4);
   }
   &.item-selected {
     border: 2px solid white;
+  }
+  span {
+    position: absolute;
+    bottom: 0;
+    text-align: right;
+    width: 100%;
+    font-weight: bold;
+    font-size: 0.8rem;
   }
 `;
 
@@ -85,24 +102,24 @@ export const Inventory = ({ starPoint }) => {
       <InventoryBackground>
         {times(24).map((i) => {
           if (i < starPoint.inventory.length) {
+            const item = starPoint.inventory[i];
             return (
               <EmptyBackgroundItem
-                onClick={() => setSelected(starPoint.inventory[i])}
-                className={`${
-                  selected?.id === starPoint.inventory[i].id
-                    ? "item-selected"
-                    : ""
-                }`}
+                onClick={() => setSelected(item)}
+                className={`${selected?.id === item.id ? "item-selected" : ""}`}
                 style={{
-                  backgroundImage: `url(${starPoint.inventory[i].image})`,
+                  backgroundImage: `url(${item.image})`,
                 }}
-              ></EmptyBackgroundItem>
+              >
+                <span>x{item.value}</span>
+              </EmptyBackgroundItem>
             );
           } else {
             return <EmptyBackgroundItem></EmptyBackgroundItem>;
           }
         })}
       </InventoryBackground>
+      <Bank>Galatic Algo Holdings: {ALGO_WHITE_ICON}20000</Bank>
     </InventoryContainer>
   );
 };

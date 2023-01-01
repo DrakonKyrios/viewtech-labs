@@ -50,9 +50,10 @@ export const Galaxy = () => {
   useEffect(() => {
     const item = {
       location: { x: 0.484, y: 0.505 },
+      bank: 5000,
       inventory: [
-        { id: 1, ...SILVER },
-        { id: 2, ...PURE_SILVER },
+        { id: 1, value: 100, ...SILVER },
+        { id: 2, value: 50, ...PURE_SILVER },
       ],
     };
     setStarPoints([item]);
