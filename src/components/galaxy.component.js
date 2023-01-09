@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import styled from "styled-components";
-import galaxy from "../assets/galaxy_5.jpg";
+import galaxy from "../assets/galaxy_6.png";
 import { PURE_SILVER, SILVER } from "../utility/item.library";
 import { Inventory } from "./inventory.component";
 import { UsedSkills } from "./used-skills.component";

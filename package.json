@@ -19,7 +19,7 @@
   },
   "scripts": {
     "start": "npx react-scripts start",
-    "build": "npx react-scripts build",
+    "build": "npx react-scripts build | cp build ../viewtech-labs-api/build -r",
     "test": "npx react-scripts test",
     "eject": "npx react-scripts eject"
   },
