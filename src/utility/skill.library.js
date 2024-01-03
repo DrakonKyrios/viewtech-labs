@@ -44,6 +44,7 @@ export const skills = [
     ],
   },
   { name: "Python", isProficient: false, isUsed: false, children: [] },
+  { name: "PyTeal", isProficient: true, isUsed: true, children: [] },
   { name: "Go", isProficient: false, isUsed: false, children: [] },
   { name: "MSSQL", isProficient: true, isUsed: false, children: [] },
   { name: "MySQL", isProficient: false, isUsed: false, children: [] },

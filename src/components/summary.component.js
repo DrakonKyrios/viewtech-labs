@@ -29,7 +29,7 @@ export const Summary = () => {
         ogically <strong>C</strong>reative.
       </Statement>
       <ProjectStatement>
-        12/12/22 <br />
+        12/12/23 <br />
         <ProjectNote>
           <strong>R</strong>ecently started creating a small project to exhibit
           some of my skills and creativity. Hope you enjoy.{" "}
