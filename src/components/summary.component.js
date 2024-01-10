@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { Algo } from "./algo.component";
 
 const Statement = styled.div`
   color: #becee7;

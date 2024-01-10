@@ -1,9 +1,11 @@
 import { useEffect, useState } from "react";
 import styled from "styled-components";
-import galaxy from "../assets/galaxy_6.png";
-import { PURE_SILVER, SILVER } from "../utility/item.library";
+import galaxy from "../../assets/galaxy_6.png";
+import underConstructionImage from "../../assets/ImgCreator.ai  under construction, city building themed, 8bit art, city cyber punk, city wide view updated.png";
+import { PURE_SILVER, SILVER } from "../../utility/item.library";
 import { Inventory } from "./inventory.component";
 import { UsedSkills } from "./used-skills.component";
+import { Algo } from "../../components/algo.component";
 
 const GalaxyContainer = styled.section`
   padding: 1rem;
@@ -69,8 +71,9 @@ export const Galaxy = () => {
   return (
     <GalaxyContainer
       onClick={(e) => addStarPoint(e.clientX, e.clientY)}
-      style={{ backgroundImage: `url(${galaxy})` }}
+      style={{ backgroundImage: `url('${underConstructionImage}')` }}
     >
+      {/* <Algo />
       {starPoints.map((point, i) => {
         return (
           <StarPoint
@@ -99,7 +102,7 @@ export const Galaxy = () => {
       })}
       {selectedStarPoint !== null ? (
         <Inventory starPoint={selectedStarPoint}></Inventory>
-      ) : null}
+      ) : null} */}
       <UsedSkills skills={["HTML", "CSS", "NodeJS", "ReactJs"]}></UsedSkills>
     </GalaxyContainer>
   );

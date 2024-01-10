@@ -1,8 +1,8 @@
 import styled from "styled-components";
 import { times } from "lodash";
-import { SILVER } from "../utility/item.library";
+import { SILVER } from "../../utility/item.library";
 import { useEffect, useState } from "react";
-import { ALGO_WHITE_ICON } from "../utility/icon.library";
+import { ALGO_WHITE_ICON } from "../../utility/icon.library";
 
 const InventoryContainer = styled.div`
   color: white;
@@ -14,8 +14,8 @@ const InventoryContainer = styled.div`
   background: rgba(0, 0, 0, 0.75);
   width: 18rem;
   height: 28.1rem;
-  left: ${(props) => props.location.x * props.size.width + 100}px;
-  top: ${(props) => props.location.y * props.size.height - 100}px;
+  left: ${({ location, size }) => location.x * size.width + 100}px;
+  top: ${({ location, size }) => location.y * size.height - 100}px;
 `;
 
 const InventoryHeader = styled.div`

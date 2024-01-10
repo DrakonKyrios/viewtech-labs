@@ -1,6 +1,11 @@
+import tw from "tailwind-styled-components";
 import styled from "styled-components";
-import { skills } from "../utility/skill.library.js";
-import { uuidv4 } from "../utility/uuid.utility.js";
+import { skills } from "../../utility/skill.library.js";
+import { uuidv4 } from "../../utility/uuid.utility.js";
+
+const SkillParent = tw.span`
+  ${(c) => (c.parent ? "font-bold" : "")}
+`;
 
 const SkillList = styled.ul`
   list-style: none;
@@ -10,6 +15,7 @@ const SkillList = styled.ul`
     text-align: center;
   }
 `;
+
 export const Skills = ({ style }) => {
   const SparklesIcon = () => (
     <i
@@ -18,7 +24,6 @@ export const Skills = ({ style }) => {
         fontSize: "0.75 rem",
         verticalAlign: "middle",
         display: "inline-block",
-        paddingLeft: ".4rem",
       }}
       className="fa-duotone fa-book-sparkles"
     />
@@ -34,21 +39,35 @@ export const Skills = ({ style }) => {
   };
   const DisplaySkill = (skill) => (
     <>
-      <li key={`skill-${uuidv4()}`}>
-        {skill.name}
-        {skill.isProficient ? <SparklesIcon /> : null}
+      <li
+        key={`skill-display-${uuidv4()}`}
+        className={skill.parent ? "mb-2" : ""}
+      >
+        <SkillParent parent={skill.parent}>{skill.name}</SkillParent>
+        {skill.isProficient ? (
+          <span className="ml-2">
+            <SparklesIcon />
+          </span>
+        ) : null}
       </li>
       {skill.children.length > 0 ? skill.children.map(SkillChoice) : null}
+      {skill.parent ? (
+        <li className={skill.parent ? "mb-2" : ""}>&nbsp;</li>
+      ) : null}
     </>
   );
   const DisplayUsedSkill = (skill) => {
     return (
       <>
-        <li style={{ color: "#f34737" }} key={`skill-${uuidv4()}`}>
+        <li style={{ color: "#f34737" }} key={`used-skill-${uuidv4()}`}>
           <strong>{skill.name}</strong>
           &nbsp;
           <CauldraonIcon />
-          {skill.isProficient ? <SparklesIcon /> : null}
+          {skill.isProficient ? (
+            <span className="ml-2">
+              <SparklesIcon />
+            </span>
+          ) : null}
         </li>
         {skill.children.length > 0 ? skill.children.map(SkillChoice) : null}
       </>
@@ -56,8 +75,11 @@ export const Skills = ({ style }) => {
   };
 
   return (
-    <section style={{ ...(style || {}), padding: "2rem 0", flex: 1 }}>
-      <div style={{ textAlign: "center" }}>
+    <section
+      key={`skill-${uuidv4}`}
+      style={{ ...(style || {}), padding: "2rem 0", flex: 1 }}
+    >
+      <div className="text-left mb-4 pl-8">
         <span>
           <SparklesIcon /> - Proficient
         </span>
@@ -66,8 +88,6 @@ export const Skills = ({ style }) => {
           <CauldraonIcon /> - Used In This App
         </span>
       </div>
-      <br />
-      <br />
       <SkillList>{skills ? skills.map(SkillChoice) : null}</SkillList>
     </section>
   );
