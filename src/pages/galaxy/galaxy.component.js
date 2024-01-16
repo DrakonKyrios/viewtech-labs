@@ -71,9 +71,9 @@ export const Galaxy = () => {
   return (
     <GalaxyContainer
       onClick={(e) => addStarPoint(e.clientX, e.clientY)}
-      style={{ backgroundImage: `url('${underConstructionImage}')` }}
+      style={{ backgroundImage: `url('${galaxy}')` }}
     >
-      {/* <Algo />
+      <Algo />
       {starPoints.map((point, i) => {
         return (
           <StarPoint
@@ -102,7 +102,7 @@ export const Galaxy = () => {
       })}
       {selectedStarPoint !== null ? (
         <Inventory starPoint={selectedStarPoint}></Inventory>
-      ) : null} */}
+      ) : null}
       <UsedSkills skills={["HTML", "CSS", "NodeJS", "ReactJs"]}></UsedSkills>
     </GalaxyContainer>
   );

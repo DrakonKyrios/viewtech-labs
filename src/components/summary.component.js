@@ -24,6 +24,7 @@ export const Summary = () => {
         padding: "1rem 1rem",
         backgroundColor: "#16253b",
       }}
+      className="border-b-2 border-blue-100"
     >
       <Statement>
         <strong>A</strong>mbitious. <strong>R</strong>eady. <strong>L</strong>
