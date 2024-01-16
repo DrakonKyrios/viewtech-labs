@@ -24,7 +24,13 @@ export const Summary = () => {
         padding: "1rem 1rem",
         backgroundColor: "#16253b",
       }}
-      className="border-b-2 border-blue-100"
+      className="h-[210px] overflow-auto border-b-2 border-blue-100 [&::-webkit-scrollbar]:w-2
+      [&::-webkit-scrollbar-track]:rounded-full
+      [&::-webkit-scrollbar-track]:bg-gray-100
+      [&::-webkit-scrollbar-thumb]:rounded-full
+      [&::-webkit-scrollbar-thumb]:bg-gray-300
+      dark:[&::-webkit-scrollbar-track]:bg-slate-700
+      dark:[&::-webkit-scrollbar-thumb]:bg-slate-500`;"
     >
       <Statement>
         <strong>A</strong>mbitious. <strong>R</strong>eady. <strong>L</strong>
