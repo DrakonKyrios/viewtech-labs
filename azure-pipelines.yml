@@ -39,6 +39,8 @@ stages:
           - script: |
               dir $(Build.SourcesDirectory)
               cd $(Build.SourcesDirectory)/viewtech-labs-api 
+              npm config set "@fortawesome:registry" https://npm.fontawesome.com/
+              npm config set "//npm.fontawesome.com/:_authToken" 982BFA63-360B-45AF-B914-7CF33445D7AA
               npm install
             displayName: "npm install nodejs"
           - script: |
