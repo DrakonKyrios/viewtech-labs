@@ -66,7 +66,7 @@ export const Resume = () => {
               {generateJobCard(job, onClickHandler)}
               <span className="inline-block h-full flex items-center w-6 h-6">
                 {`${job.position}-${job.company}` ===
-                `${jobDetail.position}-${jobDetail.company}` ? (
+                `${jobDetail?.position}-${jobDetail?.company}` ? (
                   <img
                     className="animate-bounce-left w-full"
                     src={arrowRight}

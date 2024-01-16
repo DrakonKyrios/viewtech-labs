@@ -1,13 +1,21 @@
+import tw from "tailwind-styled-components";
 import styled from "styled-components";
 import { Info } from "../info.component";
 import { Skills } from "./skills.component";
 
-const SideProfile = styled.aside`
-  height: 100vh;
-  width: 20rem;
-  overflow-y: auto;
-  display: flex;
-  flex-direction: column;
+const SideProfile = tw.aside`
+  h-[100vh]
+  w-[20rem]
+  overflow-auto
+  flex
+  flex-col
+  [&::-webkit-scrollbar]:w-2
+[&::-webkit-scrollbar-track]:rounded-full
+[&::-webkit-scrollbar-track]:bg-gray-100
+[&::-webkit-scrollbar-thumb]:rounded-full
+[&::-webkit-scrollbar-thumb]:bg-gray-300
+dark:[&::-webkit-scrollbar-track]:bg-slate-700
+dark:[&::-webkit-scrollbar-thumb]:bg-slate-500
 `;
 
 const SideFooter = styled.div`
