@@ -16,34 +16,56 @@ const SkillList = styled.ul`
   }
 `;
 
-export const Skills = ({ style }) => {
-  const SparklesIcon = () => (
-    <i
-      style={{
-        color: "#51b6be",
-        fontSize: "0.75 rem",
-        verticalAlign: "middle",
-        display: "inline-block",
-      }}
-      className="fa-duotone fa-book-sparkles"
-    />
-  );
-  const CauldraonIcon = () => (
-    <i style={{ color: "#f34737" }} className="fa-duotone fa-cauldron" />
-  );
-  const SkillChoice = (skill) => {
-    if (skill.isUsed) {
-      return DisplayUsedSkill.apply(this, [skill]);
-    }
-    return DisplaySkill(skill);
-  };
-  const DisplaySkill = (skill) => (
+const SparklesIcon = () => (
+  <i
+    style={{
+      color: "#51b6be",
+      fontSize: "0.75 rem",
+      verticalAlign: "middle",
+      display: "inline-block",
+    }}
+    className="fa-duotone fa-book-sparkles"
+  />
+);
+
+const CauldraonIcon = () => (
+  <i style={{ color: "#f34737" }} className="fa-duotone fa-cauldron" />
+);
+
+const SkillChoice = (skill) => {
+  if (skill.isUsed) {
+    return DisplayUsedSkill.apply(this, [skill]);
+  }
+  return DisplaySkill(skill);
+};
+
+const DisplaySkill = (skill) => (
+  <>
+    <li
+      key={`skill-display-${uuidv4()}`}
+      className={skill.parent ? "mb-2" : ""}
+    >
+      <SkillParent parent={skill.parent}>{skill.name}</SkillParent>
+      {skill.isProficient ? (
+        <span className="ml-2">
+          <SparklesIcon />
+        </span>
+      ) : null}
+    </li>
+    {skill.children.length > 0 ? skill.children.map(SkillChoice) : null}
+    {skill.parent ? (
+      <li className={skill.parent ? "mb-2" : ""}>&nbsp;</li>
+    ) : null}
+  </>
+);
+
+const DisplayUsedSkill = (skill) => {
+  return (
     <>
-      <li
-        key={`skill-display-${uuidv4()}`}
-        className={skill.parent ? "mb-2" : ""}
-      >
-        <SkillParent parent={skill.parent}>{skill.name}</SkillParent>
+      <li style={{ color: "#f34737" }} key={`used-skill-${uuidv4()}`}>
+        <strong>{skill.name}</strong>
+        &nbsp;
+        <CauldraonIcon />
         {skill.isProficient ? (
           <span className="ml-2">
             <SparklesIcon />
@@ -51,29 +73,11 @@ export const Skills = ({ style }) => {
         ) : null}
       </li>
       {skill.children.length > 0 ? skill.children.map(SkillChoice) : null}
-      {skill.parent ? (
-        <li className={skill.parent ? "mb-2" : ""}>&nbsp;</li>
-      ) : null}
     </>
   );
-  const DisplayUsedSkill = (skill) => {
-    return (
-      <>
-        <li style={{ color: "#f34737" }} key={`used-skill-${uuidv4()}`}>
-          <strong>{skill.name}</strong>
-          &nbsp;
-          <CauldraonIcon />
-          {skill.isProficient ? (
-            <span className="ml-2">
-              <SparklesIcon />
-            </span>
-          ) : null}
-        </li>
-        {skill.children.length > 0 ? skill.children.map(SkillChoice) : null}
-      </>
-    );
-  };
+};
 
+export const Skills = ({ style }) => {
   return (
     <section
       key={`skill-${uuidv4}`}

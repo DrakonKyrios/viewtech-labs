@@ -1,12 +1,10 @@
 import { findIndex, forEach, orderBy } from "lodash";
 
 const SUPPORTED_TAGS = ["p", "ul", "li"];
-const SUPPORTED_BRACES = ["}"];
+
 export const transform = (text) => {
   let text_d = `${text}`;
-  let maxLength = 1;
   let list = [];
-  const tags = SUPPORTED_TAGS.map((tag) => `#${tag}{`);
   let index = 0;
 
   while (index < text_d.length) {

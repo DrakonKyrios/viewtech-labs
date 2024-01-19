@@ -5,6 +5,7 @@ import { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faCalendarDays,
+  faDiamondExclamation,
   faEarthAmerica,
 } from "@fortawesome/pro-duotone-svg-icons";
 import arrowRight from "../../assets/6446272.png";
@@ -19,6 +20,7 @@ const JobContainerStyled = tw.div`w-[660px] h-[calc(100vh-230px)] overflow-y-aut
 dark:[&::-webkit-scrollbar-track]:bg-slate-700
 dark:[&::-webkit-scrollbar-thumb]:bg-slate-500`;
 const JobDetailStyled = tw.div`w-[600px] text-white ml-8 mt-4`;
+const JobEmptyStyled = tw.div`flex-1 w-full text-white ml-8 mt-[200px] text-2xl`;
 const JobCardStyled = tw.div`w-[600px] h-[200px]  border-blue-50 border-2 bg-regal-blue rounded-sm text-white overflow-hidden flex-1 mr-2 p-4 cursor-pointer flex flex-col`;
 const CastleStyled = tw.span`w-[351px] h-[200px] bg-castle bg-cover bg-no-repeat absolute right-0 bottom-0`;
 const AdventurerStyled = tw.span`w-[24px] h-[54px] bg-adventurer bg-contain bg-no-repeat absolute z-10`;
@@ -107,7 +109,19 @@ export const Resume = () => {
             }}
           ></div>
         </JobDetailStyled>
-      ) : null}
+      ) : (
+        <JobEmptyStyled>
+          <div className="text-center">
+            <span className="block">
+              <FontAwesomeIcon
+                className="h-16 w-16"
+                icon={faDiamondExclamation}
+              />
+            </span>
+            No Job Selected
+          </div>
+        </JobEmptyStyled>
+      )}
       {jobDetail ? (
         <div>
           {path[jobs.length - 1 - jobDetail.index][0] <= 119 ? (

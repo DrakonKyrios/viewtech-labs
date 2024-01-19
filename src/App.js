@@ -1,10 +1,10 @@
 import "./App.css";
 import { Summary } from "./components/summary.component";
-import { Galaxy } from "./pages/galaxy/galaxy.component";
+import { Galaxy } from "./pages/galaxy/galaxy.page";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import { Blog } from "./pages/blog.component";
 import { SideContainer } from "./components/side/side-container.component";
-import Resume from "./pages/resume/resume.component";
+import Resume from "./pages/resume/resume.page";
 
 function App() {
   const router = createBrowserRouter([
@@ -14,11 +14,11 @@ function App() {
     },
     {
       element: <Galaxy />,
-      path: "",
+      path: "galaxy",
     },
     {
       element: <Blog />,
-      path: "",
+      path: "blog",
     },
   ]);
   return (
