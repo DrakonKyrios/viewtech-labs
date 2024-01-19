@@ -4,11 +4,12 @@ export const jobs = [
     company: "BankPoint",
     dates: "January 2023 – Present",
     location: "Remote",
+    levelUp: true,
     summary:
       "My general task was centered around leading a small team to develop a Loan Origination Data Capture Application for a bank. The majority	of my workday is spent on programming (ReactC#.NetMSSQL)",
     description: `#p{My general task was centered around leading a small team to develop a Loan
 Origination Data Capture Application for a bank. The majority of my workday is 
-spent on programming (React\\C#.Net\\MSSQL) but also include}
+spent on programming (React & C#.Net & MSSQL) but also include}
 
 Responsibilities:
 #ul{
@@ -30,18 +31,19 @@ to institutions.}`,
     company: "World Wide Technology",
     dates: "December 2019 – December 2022",
     location: "Remote",
-    summary: `As my first project with WWT I worked on a React\\C#.Net Web application that 
+    levelUp: true,
+    summary: `As my first project with WWT I worked on a React & C#.Net Web application that 
 	interfaced with Sharepoint Excel documents using Microsoft Graph to better 
 	display data through a dashboard all while being governed by a strict TDD 
 	process.`,
-    description: `#p{As my first project with WWT I worked on a React\\C#.Net Web application that 
+    description: `#p{As my first project with WWT I worked on a React & C#.Net Web application that 
 interfaced with Sharepoint Excel documents using Microsoft Graph to better 
 display data through a dashboard all while being governed by a strict TDD 
 process. This project also included working on React based Excel Plug in to 
 store information into a MSSQL database.}
 #p{My next project was working with the university’s Project Manager in creating a 
-student application in Angular\\Java\\PostgreSQL stack. My first responsibility 
-was to ensure the UX/UI Designer’s mocks were implemented and matching the 
+student application in Angular & Java & PostgreSQL stack. My first responsibility 
+was to ensure the UX & UI Designer’s mocks were implemented and matching the 
 design, though some ancillary responsibilities included in helping the team 
 adopt agile principles, help run some agile ceremonies, helping team members 
 implement E2E with Cypress, and helping our backend team with performance 
@@ -63,21 +65,22 @@ previously used Postman Tests.}`,
     company: "Chatham Financial",
     dates: "October 2015 – May 2019",
     location: "Kennett Square, PA",
-    summary: `I worked on an Angular\\C# Backend\\ MSSQL stack project that helps our 
+    levelUp: true,
+    summary: `I worked on an Angular & C# Backend &  MSSQL stack project that helps our 
 	financial consultants with data retention, risk analysis, and trade execution 
 	platform. Originally a WinForm application.
 	`,
-    description: `#p{I worked on an Angular\\C# Backend\\ MSSQL stack project that helps our 
+    description: `#p{I worked on an Angular & C# Backend &  MSSQL stack project that helps our 
 financial consultants with data retention, risk analysis, and trade execution 
 platform. Originally a WinForm application, I helped the conversion with an 
-initial frontend architecture of AngularJS1.x\\SCSS\\gulp and first to implement 
+initial frontend architecture of AngularJS1.x & SCSS & gulp and first to implement 
 Protractor for E2E testing, for the backend portion we create microservice 
 architecture in C# with the help of ServiceStack and Dapper for ORM. After 
 completing our initial projects, newer projects were created with Angular 2-
-6\\Typescript\\SCSS stack with a centralized repository for shared components. 
+6 & Typescript & SCSS stack with a centralized repository for shared components. 
 Post-build tasks were handled with TeamCity to run our acceptance, unit tests, 
 and E2E testing. Helped move our repos from SVN to GitLab and together with 
-my team using GitLab Runner to build/test/deploy our frontend product.}
+my team using GitLab Runner to build & test & deploy our frontend product.}
 Accomplishments:
 #ul{
 	#li{With a small group helped pioneer and implement Angular2, Webpack, 
@@ -106,14 +109,14 @@ and now in the process of implementing features and tackling technical debt.
 Along the way I moved for the project to be managed inside of Github for issue 
 tracking and a Gitflow worlflow for release points. I also implemented an 
 automated deploy process through AWS CodePipeline and AWS CodeDeploy 
-and E2E testing through cucumber as pieces for CI/CD. I am currently tackling 
-feature development in React\\Redux\\.Net Core, but maturing the codebase to 
+and E2E testing through cucumber as pieces for CI & CD. I am currently tackling 
+feature development in React & Redux & .Net Core, but maturing the codebase to 
 include Unit Testing, automated building, and updated libraries.} 
 	`,
   },
   {
     position: "Full Stack Developer",
-    company: "Clearistic / AgoraSource",
+    company: "Clearistic  &  AgoraSource",
     dates: "November 2018 – December 2019",
     location: "Remote",
     summary: `As a contractor for AgoraSource I have worked on implementing an Angular 7 
@@ -159,6 +162,7 @@ Accomplishments
     company: "Anro Inc.",
     dates: "April 2011- March 2014",
     location: "West Chester, PA",
+    levelUp: true,
     summary: `My responsibilities includes leading a team of 3 developers to build internal and 
 external e-commerce websites for print solutions. I also was responsible for 
 managerial tasks and managing help desk personnel.`,
@@ -197,7 +201,7 @@ Accomplishments
 	#li{Primary advocate of moving from a WebForm solution to MVC 2 and 
 			was in charge of training other developers.}
 	#li{Worked with the designer to incorporate jQuery into websites to 
-			create a better UI\\UX for the customers}
+			create a better UI & UX for the customers}
 	#li{With the lead I helped some of the junior programmers and designer 
 			to move to C# and modern front-end development.}
   }`,
@@ -207,11 +211,11 @@ Accomplishments
     company: "Delaware Park",
     dates: "August 2008 - March 2009",
     location: "Wilmington, DE",
-    summary: `I worked as an independent developer\\DBA tasked with small development 
+    summary: `I worked as an independent developer & DBA tasked with small development 
 	  projects. Worked with bill validators, compact touchscreen pcs and 
 	  regular business pcs to create various business solutions.	  	 
 	  `,
-    description: `#p{I worked as an independent developer\\DBA tasked with small development 
+    description: `#p{I worked as an independent developer & DBA tasked with small development 
 projects. DBA responsibilities included maintenance, development, 
 architectural tasks. Worked with bill validators, compact touchscreen pcs and 
 regular business pcs to create various business solutions.}

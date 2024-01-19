@@ -16,7 +16,10 @@ module.exports = {
         'bit': 'EightBitDragon',
       },
       backgroundImage: {
-        'castle': "url('./assets/ImgCreatoro trees, on a hill, no le.png')"
+        'castle': "url('./assets/ImgCreatoro trees, on a hill, no le.png')",
+        'adventurer': "url('./assets/adventurer.png')",
+        'adventurer2': "url('./assets/adventurer-2.png')",
+        'level-up': "url('./assets/level-up.png')"
       },
       keyframes: {
         'bounce-left': {
