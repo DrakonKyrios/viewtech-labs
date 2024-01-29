@@ -1,5 +1,8 @@
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import profileImage from "../assets/profile.jpg";
 import styled from "styled-components";
+import { faGithubAlt } from "@fortawesome/free-brands-svg-icons";
+import { faLink } from "@fortawesome/pro-duotone-svg-icons";
 
 const ProfileBackground = styled.div`
   width: 100%;
@@ -49,6 +52,17 @@ export const Info = () => {
         </ProfileImageContainer>
         <ProfileIdentity>Andres R Toro</ProfileIdentity>
         <ProfileAddress>Newark, DE</ProfileAddress>
+        <ProfileAddress>
+          <FontAwesomeIcon icon={faGithubAlt} />{" "}
+          <a
+            className="inline-block mr-8 underline"
+            target="_blank"
+            rel="noreferrer"
+            href="https://github.com/DrakonKyrios?tab=repositories"
+          >
+            My Repo / DrakonKyrios
+          </a>{" "}
+        </ProfileAddress>
       </ProfileContainer>
     </section>
   );

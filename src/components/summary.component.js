@@ -1,6 +1,8 @@
 import tw from "tailwind-styled-components";
 import styled from "styled-components";
 import { Algo } from "./algo.component";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faGithubAlt } from "@fortawesome/free-brands-svg-icons";
 
 const Statement = styled.div`
   color: #becee7;
@@ -41,23 +43,28 @@ export const Summary = () => {
       <ProjectStatement>
         12/12/23 <br />
         <ProjectNote>
-          <FirstLetter>R</FirstLetter>ecently started creating a small project
-          to exhibit some of my skills and creativity. Hope you enjoy.
+          <FirstLetter>C</FirstLetter>reated this small project over the week to
+          show my resume. Hope you enjoy.
         </ProjectNote>
         <ProjectNote>
           <FirstLetter>T</FirstLetter>he initial route I think I'll go for is
           React app on a NodeJS - Express Server in Azure Linux environment that
           shows my basic resume.
         </ProjectNote>
-        <ProjectNote>
-          <FirstLetter>S</FirstLetter>econd Stage will be creating a "ship" to
-          go to each starpoint and buy the resources that it needs based on it's
-          budget and gas costs, data will be kept in a NoSQL databse with a C#
-          Microservice to handle trade requests based on smart contracts on the
-          Algorand Test Network (beacuse why not). So at the end of the day
-          HTML, CSS, Javascript(React | NodeJs), C# (.Net), Python will be used
-          in this particular app.
-        </ProjectNote>
+        <div className="flex mt-2">
+          <span>
+            <FontAwesomeIcon icon={faGithubAlt} />
+            &nbsp;Github @
+            <a
+              className="inline-block mr-8 underline"
+              target="_blank"
+              rel="noreferrer"
+              href="https://github.com/DrakonKyrios?tab=repositories"
+            >
+              DrakonKyrios
+            </a>{" "}
+          </span>
+        </div>
       </ProjectStatement>
     </section>
   );
