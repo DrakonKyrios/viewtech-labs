@@ -3,7 +3,7 @@ export const jobs = [
     position: "Senior Full Stack Engineer",
     company: "BankPoint",
     dates: "January 2023 – Present",
-    location: "Remote",
+    location: "McKinney, TX",
     levelUp: true,
     summary:
       "My general task was centered around leading a small team to develop a Loan Origination Data Capture Application for a bank. The majority	of my workday is spent on programming (ReactC#.NetMSSQL)",
@@ -30,7 +30,7 @@ to institutions.}`,
     position: "Senior Full Stack Developer",
     company: "World Wide Technology",
     dates: "December 2019 – December 2022",
-    location: "Remote",
+    location: "St. Louis, MO",
     levelUp: true,
     summary: `As my first project with WWT I worked on a React & C#.Net Web application that 
 	interfaced with Sharepoint Excel documents using Microsoft Graph to better 

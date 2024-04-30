@@ -11,9 +11,10 @@ module.exports = {
       },
       colors: {
         'regal-blue': '#16253b',
+        'faded-blue': 'rgba(190, 206, 231, 0.8)'
       },
       fontFamily: {
-        'bit': 'EightBitDragon',
+        'bit': 'EightBitDragon',        
       },
       backgroundImage: {
         'castle': "url('./assets/ImgCreatoro trees, on a hill, no le.png')",

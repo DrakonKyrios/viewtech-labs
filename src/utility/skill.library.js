@@ -10,7 +10,7 @@ export const skills = [
         isUsed: true,
         children: [
           { name: "React", isProficient: true, isUsed: true, children: [] },
-          { name: "Angular", isProficient: false, isUsed: false, children: [] },
+          { name: "Angular", isProficient: true, isUsed: false, children: [] },
           {
             name: "Typescript",
             isProficient: true,
@@ -20,7 +20,7 @@ export const skills = [
           { name: "Vue.js", isProficient: false, isUsed: false, children: [] },
         ],
       },
-      { name: "Storybook", isProficient: false, isUsed: false, children: [] },
+      { name: "Storybook", isProficient: true, isUsed: false, children: [] },
       { name: "jQuery", isProficient: false, isUsed: false, children: [] },
     ],
   },
@@ -63,7 +63,7 @@ export const skills = [
         ],
       },
       { name: "Python", isProficient: false, isUsed: false, children: [] },
-      { name: "PyTeal", isProficient: true, isUsed: true, children: [] },
+      { name: "PyTeal", isProficient: true, isUsed: false, children: [] },
       { name: "Go", isProficient: false, isUsed: false, children: [] },
     ],
   },

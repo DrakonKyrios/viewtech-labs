@@ -24,12 +24,12 @@ const SparklesIcon = () => (
       verticalAlign: "middle",
       display: "inline-block",
     }}
-    className="fa-duotone fa-book-sparkles"
+    className="fa-duotone fa-circle-plus"
   />
 );
 
 const CauldraonIcon = () => (
-  <i style={{ color: "#f34737" }} className="fa-duotone fa-cauldron" />
+  <i style={{ color: "#f34737" }} className="fa-duotone fa-circle-plus" />
 );
 
 const SkillChoice = (skill) => {

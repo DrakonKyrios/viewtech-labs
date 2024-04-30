@@ -10,7 +10,7 @@ import {
 } from "@fortawesome/pro-duotone-svg-icons";
 import arrowRight from "../../assets/6446272.png";
 import { transform } from "../../utility/template.utility";
-const ResumeContainerStyled = tw.section`bg-regal-blue px-8 pt-2 flex flex-wrap font-bit background relative h-[calc(100vh-210px)] flex overflow-hidden`;
+const ResumeContainerStyled = tw.section`bg-regal-blue px-8 pt-2 flex flex-wrap font-futara background relative h-[calc(100vh-210px)] flex overflow-hidden`;
 const JobContainerStyled = tw.div`w-[660px] h-[calc(100vh-230px)] overflow-y-auto pr-2
 [&::-webkit-scrollbar]:w-2
 [&::-webkit-scrollbar-track]:rounded-full

@@ -3,6 +3,10 @@ import styled from "styled-components";
 import { Algo } from "./algo.component";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faGithubAlt } from "@fortawesome/free-brands-svg-icons";
+import pay2win from "../assets/pay-2-win.png";
+import npmjs from "../assets/reveling-text-npmjs.png";
+
+import { faArrowAltCircleRight } from "@fortawesome/pro-duotone-svg-icons";
 
 const Statement = styled.div`
   color: #becee7;
@@ -18,6 +22,9 @@ const ProjectStatement = styled.div`
 const ProjectNote = styled.div`
   display: block;
 `;
+
+const ProjectWork = tw.div`flex flex-row`;
+const ProjectWorkItem = tw.div`flex flex-1 flex-col cursor-pointer mr-4`;
 
 const FirstLetter = tw.span`font-bold text-lg`;
 export const Summary = () => {
@@ -35,37 +42,83 @@ export const Summary = () => {
       dark:[&::-webkit-scrollbar-track]:bg-slate-700
       dark:[&::-webkit-scrollbar-thumb]:bg-slate-500`;"
     >
-      <Statement>
-        <FirstLetter>A</FirstLetter>mbitious. <FirstLetter>R</FirstLetter>eady.{" "}
-        <FirstLetter>L</FirstLetter>
-        ogically <FirstLetter>C</FirstLetter>reative.
-      </Statement>
-      <ProjectStatement>
-        12/12/23 <br />
-        <ProjectNote>
-          <FirstLetter>C</FirstLetter>reated this small project over the week to
-          show my resume. Hope you enjoy.
-        </ProjectNote>
-        <ProjectNote>
-          <FirstLetter>T</FirstLetter>he initial route I think I'll go for is
-          React app on a NodeJS - Express Server in Azure Linux environment that
-          shows my basic resume.
-        </ProjectNote>
-        <div className="flex mt-2">
-          <span>
-            <FontAwesomeIcon icon={faGithubAlt} />
-            &nbsp;Github @
-            <a
-              className="inline-block mr-8 underline"
-              target="_blank"
-              rel="noreferrer"
-              href="https://github.com/DrakonKyrios?tab=repositories"
-            >
-              DrakonKyrios
-            </a>{" "}
-          </span>
+      <div className="flex text-faded-blue">
+        <div className="mr-8">
+          <Statement>
+            <FirstLetter>A</FirstLetter>mbitious. <FirstLetter>R</FirstLetter>
+            eady. <FirstLetter>L</FirstLetter>
+            ogically <FirstLetter>C</FirstLetter>reative.
+          </Statement>
+          <ProjectStatement>
+            12/12/23 <br />
+            <ProjectNote>
+              <FirstLetter>C</FirstLetter>reated this small project over the
+              week to show my resume. Hope you enjoy.
+            </ProjectNote>
+            <ProjectNote>
+              <FirstLetter>T</FirstLetter>he initial route I think I'll go for
+              is React app on a NodeJS - Express Server in Azure Linux
+              environment that shows my basic resume.
+            </ProjectNote>
+            <div className="flex mt-2">
+              <span>
+                <FontAwesomeIcon icon={faGithubAlt} />
+                &nbsp;Github @
+                <a
+                  className="inline-block mr-8 underline"
+                  target="_blank"
+                  rel="noreferrer"
+                  href="https://github.com/DrakonKyrios?tab=repositories"
+                >
+                  DrakonKyrios
+                </a>{" "}
+              </span>
+            </div>
+          </ProjectStatement>
         </div>
-      </ProjectStatement>
+        <ProjectWork>
+          <ProjectWorkItem
+            onClick={() =>
+              window.open(
+                "https://www.p2win.gg",
+                "_blank",
+                "noopener, noreferrer"
+              )
+            }
+          >
+            <div className="w-48">
+              <img className="w-full" alt="Pay-2-Win" src={pay2win} />
+            </div>
+            <div className="text-cente flex items-center justify-center">
+              <span className="inline-block mr-2">Pay 2 Win (In Progress)</span>
+              <FontAwesomeIcon icon={faArrowAltCircleRight} />
+            </div>
+            <div className="text-cente flex items-center justify-center">
+              React Typescript Node.js
+            </div>
+          </ProjectWorkItem>
+          <ProjectWorkItem
+            onClick={() =>
+              window.open(
+                "https://www.npmjs.com/package/@viewtech-labs/revealing-text",
+                "_blank",
+                "noopener, noreferrer"
+              )
+            }
+          >
+            <div className="w-48">
+              <img className="w-full" alt="Revealing Text NPMJs" src={npmjs} />
+            </div>
+            <div className="text-cente flex items-center justify-center">
+              <span className="inline-block mr-2">Revealing Text NPMjs</span>
+              <FontAwesomeIcon icon={faArrowAltCircleRight} />
+            </div>
+            <div className="text-cente flex items-center justify-center">
+              React Typescript
+            </div>
+          </ProjectWorkItem>
+        </ProjectWork>
+      </div>
     </section>
   );
 };
