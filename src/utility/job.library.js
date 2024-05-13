@@ -5,26 +5,25 @@ export const jobs = [
     dates: "January 2023 – Present",
     location: "McKinney, TX",
     levelUp: true,
+    term: "1-year contract",
+    stack: "React, Javascript, C#, MSSQL, Azure",
+    libraries:
+      "React 18, .NET 7, .NET 8, EF Core 7.0, EF Core 8.0, Dapper, Tailwind CSS, Cypress, Storybook, XUnit, Figma, Nx Workspace",
     summary:
       "My general task was centered around leading a small team to develop a Loan Origination Data Capture Application for a bank. The majority	of my workday is spent on programming (ReactC#.NetMSSQL)",
-    description: `#p{My general task was centered around leading a small team to develop a Loan
-Origination Data Capture Application for a bank. The majority of my workday is 
-spent on programming (React & C#.Net & MSSQL) but also include}
+    description: `#p{My general task was centered around leading a small team to develop a Loan Origination Data Capture Application for a bank and integrating 3rd party financial services within a year. Much of the workday is spent on development but also included }
 
 Responsibilities:
 #ul{
-#li{Choosing project structure and the various software libraries used in the project in the scope of C#, MS SQL, and choice of Frontend Library. Working with a designer in developing and executing design strategies }
-#li{Working with the project manager for identifying features and timeline}
-#li{Story planning and writing}
-#li{Deciding and implementing testing Strategies}
-#li{Developing and providing technical guidance to grow a junior developer.}
+#li{Programming through vertical slices and providing technical guidance for a junior developer}
+#li{Deciding project structure and the various software libraries used in the project}
+#li{Working with a designer in developing and executing design strategies and storybook components for later use }
+#li{Working with the project manager for identifying features and establishing timelines through UML Diagrams, Gnatt Charts, and establishing Epics}
+#li{Story Planning, Story Grooming, Story Writing, and other agile rituals }
+#li{Deciding and implementing testing Strategies with Cypress Component Testing and XUnit}
 }
 #p{
-The application is primarily a conversion from an excel spreadsheet to web 
-application, but evolved into helping the bank with defining and securing 
-procedural consistencies, data validation rules, auditing, and including third 
-party financial software services for data gathering and pushing of financial data 
-to institutions.}`,
+  The application is primarily a conversion from an excel spreadsheet to web application but evolved into helping the bank with defining and securing procedural consistencies, data validation rules, auditing, and including third party financial software services for data gathering and pushing of financial data to institutions. My Achievements also included ensuring system stability by proactively identifying and addressing performance issues before they impacted end-users through server-side caching, stateful frontend, and proper database indexing which led to a reduction to average response time. }`,
   },
   {
     position: "Senior Full Stack Developer",

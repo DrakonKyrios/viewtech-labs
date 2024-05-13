@@ -21,22 +21,42 @@ dark:[&::-webkit-scrollbar-track]:bg-slate-700
 dark:[&::-webkit-scrollbar-thumb]:bg-slate-500`;
 const JobDetailStyled = tw.div`w-[600px] text-white ml-8 mt-4`;
 const JobEmptyStyled = tw.div`flex-1 w-full text-white ml-8 mt-[200px] text-2xl`;
-const JobCardStyled = tw.div`w-[600px] h-[200px]  border-blue-50 border-2 bg-regal-blue rounded-sm text-white overflow-hidden flex-1 mr-2 p-4 cursor-pointer flex flex-col`;
+const JobCardStyled = tw.div`w-[600px] border-blue-50 border-2 bg-regal-blue rounded-sm text-white overflow-hidden flex-1 mr-2 p-4 cursor-pointer flex flex-col`;
 const CastleStyled = tw.span`w-[351px] h-[200px] bg-castle bg-cover bg-no-repeat absolute right-0 bottom-0`;
 const AdventurerStyled = tw.span`w-[24px] h-[54px] bg-adventurer bg-contain bg-no-repeat absolute z-10`;
 const Adventurer2Styled = tw.span`w-[24px] h-[54px] bg-adventurer2 bg-contain bg-no-repeat absolute z-20`;
 const LevelUpStyled = tw.span`w-[24px] h-[54px] bg-level-up bg-contain bg-no-repeat absolute z-20 animate-bounce`;
-
+const IdentifyStyled = tw.span`text-gray-400 inline-block`;
 const JobSubDetails = ({ job }) => {
   return (
-    <div className="text-xl text-gray-400 mb-4 pl-2 flex justify-between">
-      <span className="">
-        <FontAwesomeIcon icon={faCalendarDays} /> {job.dates}{" "}
-      </span>
-      <span className="">
-        <FontAwesomeIcon icon={faEarthAmerica} /> {job.location}{" "}
-      </span>
-    </div>
+    <>
+      <div className="text-xl text-gray-400 mb-4 pl-2 flex justify-between">
+        <span className="">
+          <FontAwesomeIcon icon={faCalendarDays} /> {job.dates}{" "}
+        </span>
+        <span className="">
+          <FontAwesomeIcon icon={faEarthAmerica} /> {job.location}{" "}
+        </span>
+      </div>
+      {job.term ? (
+        <div className="text-md">
+          <IdentifyStyled>Terms:&nbsp;</IdentifyStyled>
+          {job.term}
+        </div>
+      ) : null}
+      {job.stack ? (
+        <div className="text-md">
+          <IdentifyStyled>Stack:&nbsp;</IdentifyStyled>
+          {job.stack}
+        </div>
+      ) : null}
+      {job.libraries ? (
+        <div className="text-md mb-2">
+          <IdentifyStyled>Libraries:&nbsp;</IdentifyStyled>
+          {job.libraries}
+        </div>
+      ) : null}
+    </>
   );
 };
 
