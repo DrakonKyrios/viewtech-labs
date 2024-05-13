@@ -4,6 +4,7 @@ import { Algo } from "./algo.component";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faGithubAlt } from "@fortawesome/free-brands-svg-icons";
 import pay2win from "../assets/pay-2-win.png";
+import everythingbutwater from "../assets/everything-but-water.png";
 import npmjs from "../assets/reveling-text-npmjs.png";
 
 import { faArrowAltCircleRight } from "@fortawesome/pro-duotone-svg-icons";
@@ -25,6 +26,7 @@ const ProjectNote = styled.div`
 
 const ProjectWork = tw.div`flex flex-row`;
 const ProjectWorkItem = tw.div`flex flex-1 flex-col cursor-pointer mr-4`;
+const ProjectWorkItemTitle = tw.div`text-center flex items-center justify-center`;
 
 const FirstLetter = tw.span`font-bold text-lg`;
 export const Summary = () => {
@@ -89,13 +91,13 @@ export const Summary = () => {
             <div className="w-48">
               <img className="w-full" alt="Pay-2-Win" src={pay2win} />
             </div>
-            <div className="text-cente flex items-center justify-center">
+            <ProjectWorkItemTitle>
               <span className="inline-block mr-2">Pay 2 Win (In Progress)</span>
               <FontAwesomeIcon icon={faArrowAltCircleRight} />
-            </div>
-            <div className="text-cente flex items-center justify-center">
+            </ProjectWorkItemTitle>
+            <ProjectWorkItemTitle>
               React Typescript Node.js
-            </div>
+            </ProjectWorkItemTitle>
           </ProjectWorkItem>
           <ProjectWorkItem
             onClick={() =>
@@ -109,13 +111,33 @@ export const Summary = () => {
             <div className="w-48">
               <img className="w-full" alt="Revealing Text NPMJs" src={npmjs} />
             </div>
-            <div className="text-cente flex items-center justify-center">
+            <ProjectWorkItemTitle>
               <span className="inline-block mr-2">Revealing Text NPMjs</span>
               <FontAwesomeIcon icon={faArrowAltCircleRight} />
+            </ProjectWorkItemTitle>
+            <ProjectWorkItemTitle>React Typescript</ProjectWorkItemTitle>
+          </ProjectWorkItem>
+          <ProjectWorkItem
+            onClick={() =>
+              window.open(
+                "https://www.everythingbutwater.com",
+                "_blank",
+                "noopener, noreferrer"
+              )
+            }
+          >
+            <div className="w-48">
+              <img
+                className="w-full max-h-[120px]"
+                alt="Everything But Water"
+                src={everythingbutwater}
+              />
             </div>
-            <div className="text-cente flex items-center justify-center">
-              React Typescript
-            </div>
+            <ProjectWorkItemTitle>
+              <span className="inline-block mr-2">Everything But Water</span>
+              <FontAwesomeIcon icon={faArrowAltCircleRight} />
+            </ProjectWorkItemTitle>
+            <ProjectWorkItemTitle>jQuery KnockoutJs C#</ProjectWorkItemTitle>
           </ProjectWorkItem>
         </ProjectWork>
       </div>
