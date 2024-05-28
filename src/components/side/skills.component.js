@@ -62,15 +62,23 @@ const DisplaySkill = (skill) => (
 const DisplayUsedSkill = (skill) => {
   return (
     <>
-      <li style={{ color: "#f34737" }} key={`used-skill-${uuidv4()}`}>
-        <strong>{skill.name}</strong>
-        &nbsp;
-        <CauldraonIcon />
-        {skill.isProficient ? (
-          <span className="ml-2">
-            <SparklesIcon />
+      <li
+        className="flex justify-around"
+        style={{ color: "#f34737" }}
+        key={`used-skill-${uuidv4()}`}
+      >
+        <span className="flex">
+          <strong>{skill.name}</strong>
+          &nbsp;
+          <span className="ml-2 flex items-center">
+            <CauldraonIcon />
           </span>
-        ) : null}
+          {skill.isProficient ? (
+            <span className="ml-2 flex items-center">
+              <SparklesIcon />
+            </span>
+          ) : null}
+        </span>
       </li>
       {skill.children.length > 0 ? skill.children.map(SkillChoice) : null}
     </>

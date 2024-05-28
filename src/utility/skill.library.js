@@ -81,10 +81,10 @@ export const skills = [
     name: "Deployment",
     parent: true,
     children: [
-      { name: "Azure", isProficient: true, isUsed: false, children: [] },
+      { name: "Azure", isProficient: true, isUsed: true, children: [] },
       { name: "AWS", isProficient: false, isUsed: false, children: [] },
       { name: "Docker", isProficient: true, isUsed: false, children: [] },
     ],
   },
-  { name: "Git", isProficient: true, isUsed: false, children: [] },
+  { name: "Git", isProficient: true, isUsed: true, children: [] },
 ];
