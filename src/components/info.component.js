@@ -3,15 +3,10 @@ import profileImage from "../assets/profile.jpg";
 import styled from "styled-components";
 import { faGithubAlt } from "@fortawesome/free-brands-svg-icons";
 import { faLink } from "@fortawesome/pro-duotone-svg-icons";
+import tw from "tailwind-styled-components";
 
-const ProfileBackground = styled.div`
-  width: 100%;
-  position: absolute;
-  background-color: #16253b;
-  height: calc(50% + 1rem);
-  top: 0;
-  z-index: -1;
-`;
+const ProfileBackground = tw.div`w-full absolute h-[calc(50%_+_1rem)] top-0 -z-1`
+
 const ProfileImageContainer = styled.div`
   border-radius: 10rem;
   border: 3px solid #becee7;
@@ -44,7 +39,7 @@ const ProfileAddress = styled.div`
 `;
 export const Info = () => {
   return (
-    <section style={{ borderRight: "1px solid #becee7" }}>
+    <section>
       <ProfileContainer>
         <ProfileBackground></ProfileBackground>
         <ProfileImageContainer>

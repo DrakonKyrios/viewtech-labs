@@ -16,6 +16,8 @@ const SideProfile = tw.aside`
 [&::-webkit-scrollbar-thumb]:bg-gray-300
 dark:[&::-webkit-scrollbar-track]:bg-slate-700
 dark:[&::-webkit-scrollbar-thumb]:bg-slate-500
+bg-regal-blue
+text-white
 `;
 
 const SideFooter = styled.div`

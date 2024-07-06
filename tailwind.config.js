@@ -10,6 +10,13 @@ module.exports = {
         'xl': '1440px',
       },
       colors: {
+        'primary': {
+          DEFAULT: '#16253b',
+          'dark': '#121f31'
+        },
+        'secondary': {
+          DEFAULT: '#D4AF27'
+        },
         'regal-blue': '#16253b',
         'faded-blue': 'rgba(190, 206, 231, 0.8)'
       },
