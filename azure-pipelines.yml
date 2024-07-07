@@ -81,8 +81,9 @@ stages:
       - deployment: Deploy
         displayName: Deploy
         environment: $(environmentName)
-        pool:
-          vmImage: $(vmImageName)
+        pool:      
+          #Self Hosted Main
+          name: Default
         strategy:
           runOnce:
             deploy:
