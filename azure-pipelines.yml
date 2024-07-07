@@ -17,7 +17,7 @@ variables:
   environmentName: "viewtechlabs"
 
   # Agent VM image name
-  vmImageName: "ubuntu-latest"
+  selfHostedPool: "Alexandria"
 
 stages:
   - stage: Build
@@ -25,44 +25,52 @@ stages:
     jobs:
       - job: Build
         displayName: Build
-        pool:
-          vmImage: $(vmImageName)
-
+        pool:      
+          #Self Hosted Main
+          name: Default
         steps:
           - checkout: self
           - checkout: git://viewtech-labs/viewtech-labs-api@main
           - task: NodeTool@0
             inputs:
               versionSpec: "18.x"
-            displayName: "Install Node.js"
-
-          - script: |
-              dir $(Build.SourcesDirectory)
-              cd $(Build.SourcesDirectory)/viewtech-labs-api 
-              npm config set "@fortawesome:registry" https://npm.fontawesome.com/
-              npm config set "//npm.fontawesome.com/:_authToken" 982BFA63-360B-45AF-B914-7CF33445D7AA
-              npm install
+            displayName: "Install Node.js"          
+          - script: |                            
+              dir $(Build.SourcesDirectory);
+              echo "Change Directory"
+              cd $(Build.SourcesDirectory)\viewtech-labs-api
+              dir ;
+              npm install            
             displayName: "npm install nodejs"
           - script: |
-              cd $(Build.SourcesDirectory)/viewtech-labs
+              cd $(Build.SourcesDirectory)\viewtech-labs          
+              echo "Frontend Install" 
               npm install
-              npm run build              
-              echo $(Build.SourcesDirectory)
+              echo "Frontend Build"
+              npm run build                      
+              dir $(Build.SourcesDirectory)
+            displayName: "npm install main"
+          - script: |
+              cd $(Build.SourcesDirectory)\viewtech-labs          
+              echo "Frontend Build"
+              npm run build                      
+              dir $(Build.SourcesDirectory)
+            displayName: "npm build main"            
           - task: CopyFiles@2
             inputs:
-              SourceFolder: $(Build.SourcesDirectory)/viewtech-labs/build
+              SourceFolder: $(Build.SourcesDirectory)\viewtech-labs\build
               Contents: "**"
-              TargetFolder: $(Build.SourcesDirectory)/viewtech-labs-api/build
+              TargetFolder: $(Build.SourcesDirectory)\viewtech-labs-api\build
           - task: ArchiveFiles@2
             displayName: "Archive files"
             inputs:
-              rootFolderOrFile: "$(System.DefaultWorkingDirectory)/viewtech-labs-api"
+              rootFolderOrFile: "$(System.DefaultWorkingDirectory)\viewtech-labs-api"
               includeRootFolder: false
               archiveType: zip
-              archiveFile: $(Build.ArtifactStagingDirectory)/$(Build.BuildId).zip
+              archiveFile: $(Build.ArtifactStagingDirectory)\$(Build.BuildId).zip
               replaceExistingArchive: true
 
-          - upload: $(Build.ArtifactStagingDirectory)/$(Build.BuildId).zip
+          - upload: $(Build.ArtifactStagingDirectory)\$(Build.BuildId).zip
             artifact: drop
 
   - stage: Deploy
