@@ -11,17 +11,19 @@ module.exports = {
       },
       colors: {
         'primary': {
+          'lighter': '#becee7cc',
           DEFAULT: '#16253b',
-          'dark': '#121f31'
+          'dark': '#121f31',
+          'darker': '#08182e'
         },
         'secondary': {
           DEFAULT: '#D4AF27'
-        },
-        'regal-blue': '#16253b',
-        'faded-blue': 'rgba(190, 206, 231, 0.8)'
+        },                
       },
       fontFamily: {
         'bit': 'EightBitDragon',        
+        'futura-light': 'FuturaLight',        
+        'futura-medium': 'FuturaMedium',        
       },
       backgroundImage: {
         'castle': "url('./assets/ImgCreatoro trees, on a hill, no le.png')",

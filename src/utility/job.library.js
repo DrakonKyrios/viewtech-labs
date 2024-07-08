@@ -95,8 +95,9 @@ Accomplishments:
   {
     position: "Full Stack Developer",
     company: "Jane.Hr",
+    term: "6 Month Contract",
     dates: "June 2019 – December 2019",
-    location: "Remote",
+    location: "Philadelphia, PA",
     summary: `Initial task was to identity and repair configuration problems inside AWS EC2 
 	instances which included correcting DNS, IP, and IIS configurations. The next 
 	goal that was accomplished was returning the beta product to a stable build.
@@ -115,8 +116,9 @@ include Unit Testing, automated building, and updated libraries.}
   },
   {
     position: "Full Stack Developer",
-    company: "Clearistic  &  AgoraSource",
-    dates: "November 2018 – December 2019",
+    company: "Clearistic  \\  AgoraSource",
+    term: "6 Month Contract",
+    dates: "May 2019 – December 2019",
     location: "Remote",
     summary: `As a contractor for AgoraSource I have worked on implementing an Angular 7 
 Web App for a client, this app managed hours and settings for onsite 

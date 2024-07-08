@@ -2,6 +2,7 @@ import tw from "tailwind-styled-components";
 import styled from "styled-components";
 import { Info } from "../info.component";
 import { Skills } from "./skills.component";
+import ProInfo from "./pro-info.component";
 
 const SideProfile = tw.aside`
   h-[100vh]
@@ -16,8 +17,8 @@ const SideProfile = tw.aside`
 [&::-webkit-scrollbar-thumb]:bg-gray-300
 dark:[&::-webkit-scrollbar-track]:bg-slate-700
 dark:[&::-webkit-scrollbar-thumb]:bg-slate-500
-bg-regal-blue
 text-white
+bg-primary-dark
 `;
 
 const SideFooter = styled.div`
@@ -29,9 +30,10 @@ const SideFooter = styled.div`
 export const SideContainer = () => {
   return (
     <SideProfile>
-      <Info></Info>
+      <Info />
+      <ProInfo />
       <Skills style={{ flex: 1 }}></Skills>
-      <SideFooter>December 2022</SideFooter>
+      <SideFooter>December 2023</SideFooter>
     </SideProfile>
   );
 };

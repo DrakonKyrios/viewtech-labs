@@ -1,11 +1,9 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import profileImage from "../assets/profile.jpg";
 import styled from "styled-components";
-import { faGithubAlt } from "@fortawesome/free-brands-svg-icons";
-import { faLink } from "@fortawesome/pro-duotone-svg-icons";
 import tw from "tailwind-styled-components";
 
-const ProfileBackground = tw.div`w-full absolute h-[calc(50%_+_1rem)] top-0 -z-1`
+const ProfileBackground = tw.div`w-full absolute h-[calc(50%_+_1rem)] top-0 -z-1`;
 
 const ProfileImageContainer = styled.div`
   border-radius: 10rem;
@@ -29,36 +27,24 @@ const ProfileContainer = styled.div`
   width: 100%;
   position: relative;
 `;
-const ProfileIdentity = styled.div`
-  text-align: center;
-  font-size: 1.4rem;
-  font-family: FuturaMedium;
-`;
-const ProfileAddress = styled.div`
-  text-align: center;
-`;
+
 export const Info = () => {
   return (
-    <section>
-      <ProfileContainer>
+    <section className="bg-primary pb-8">
+      <ProfileContainer className="pb-4">
         <ProfileBackground></ProfileBackground>
         <ProfileImageContainer>
           <div style={{ backgroundImage: `url(${profileImage})` }}>&nbsp;</div>
         </ProfileImageContainer>
-        <ProfileIdentity>Andres R Toro</ProfileIdentity>
-        <ProfileAddress>Newark, DE</ProfileAddress>
-        <ProfileAddress>
-          <FontAwesomeIcon icon={faGithubAlt} />{" "}
-          <a
-            className="inline-block mr-8 underline"
-            target="_blank"
-            rel="noreferrer"
-            href="https://github.com/DrakonKyrios?tab=repositories"
-          >
-            My Repo / DrakonKyrios
-          </a>{" "}
-        </ProfileAddress>
       </ProfileContainer>
+      <div className="text-center text-2xl font-futura-medium">
+        Andres R Toro
+      </div>
+      <div>
+        <div className="text-center text-primary-lighter">
+          Senior Full Stack Engineer
+        </div>
+      </div>
     </section>
   );
 };
